@@ -1,0 +1,73 @@
+mat-sidenav-container{
+  height: 100vh;
+}
+mat-sidenav{
+  background-color: #2f3542;
+  width: 300px
+}
+mat-toolbar{
+  background-color: #b8e994;
+  font-family: 'Quicksand', sans-serif;
+  color: #2f3542 ;
+}
+mat-icon{
+  vertical-align: middle;
+}
+
+mat-card{
+  margin-top: 20px;
+}
+.mat_card_width{
+  margin-left: 20px; margin-right: 20px;
+}
+.head-menu{
+  margin: 10%;
+  justify-content: center;
+  display: flex;
+}
+.cercle-menu{
+  background-color: #A3CB38;
+  color: white;
+  text-align: center;
+  line-height: 3em;
+  font-size: 2em;
+  border-radius: 999px;
+  width: 100px;height: 100px;
+}
+.menu{
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+}
+ul{
+  list-style: none;
+  margin: 16px 0;
+  padding: 0;
+}
+li{
+  cursor: pointer;
+  transition: padding 0.3s;
+  padding-left: 3%;
+  padding-bottom: 2%;
+  padding-top: 2%;
+}
+li:hover{
+  background-color: #34495e;
+  padding-left: 15px;
+  color: white;
+  font-weight: bold;
+  border-left: solid 3px #b8e994;
+}
+.active{
+  color: #b8e994;
+  font-weight: bold;
+  background-color: #34495e;
+}
+.emailVerified_center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: linear-gradient(#b8e994, #A3CB38);
+}
+

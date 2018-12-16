@@ -1,0 +1,47 @@
+<div class="mat_card_width">
+  <div class="row">
+    <div class="col-12">
+      <mat-card>
+        <p>
+          default works!
+        </p>
+        <p>
+          Largeur de l'écran: {{innerWidth}}.
+        </p>
+        <p>
+          Valide email:
+        </p>
+      </mat-card>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div [class.col-12]="innerWidth<1000" class="col-6">
+      <mat-card>
+        Card 1
+      </mat-card>
+    </div>
+    <div [class.col-12]="innerWidth<1000" class="col-6">
+      <mat-card>
+        Card 2
+        <p>
+          card 2
+        </p>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row">
+    <div [class.col-12]="innerWidth<1000" class="col-6">
+      <mat-card>
+        Card 3
+      </mat-card>
+    </div>
+    <div [class.col-12]="innerWidth<1000" class="col-6">
+      <mat-card>
+        Card 4
+      </mat-card>
+    </div>
+  </div>
+</div>

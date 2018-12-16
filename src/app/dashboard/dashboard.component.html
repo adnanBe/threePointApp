@@ -1,0 +1,79 @@
+
+<div *ngIf="!emailVerified" class="emailVerified_center">
+  <div >
+    <mat-card>
+    <p>
+      Votre Adresse email n'est pas validé encore veuillez vérifier votre boite réception, à très vite !
+    </p>
+    <p>
+      Redirection automatique dans 5 secondes
+    </p>
+  </mat-card>
+  </div> 
+</div>
+<div *ngIf="emailVerified">
+  <mat-toolbar *ngIf="innerWidth<1000">
+    <span>
+      <button mat-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+      </button>
+      Three Point</span>
+    <span style="flex: 1 1 auto"></span>
+    <span>
+          <button mat-button >
+            <mat-icon >help</mat-icon> Aide
+          </button>
+          <span> | </span>
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>account_box</mat-icon> {{user.firstName}} {{user.lastName}}
+          </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Mon profile</button>
+              <button mat-menu-item (click)="onSignOut()">Se déconnecter</button>
+            </mat-menu>
+        </span>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-container">
+
+    <mat-sidenav #sidenav [mode]="innerWidth>=1000 ? 'side' : 'over'" [opened]="innerWidth>=1000">
+      <div class="head-menu">
+        <div class="cercle-menu">
+          {{user.firstName.substr(0,1)}}{{user.lastName.substr(0,1)}}
+        </div>
+      </div>
+
+      <div class="menu">
+        <ul>
+          <li  *ngFor="let path of paths" [routerLink]="[ path.url ]" routerLinkActive="active" ><mat-icon >{{path.icone}}</mat-icon>  {{path.name}}</li>
+        </ul>
+      </div>
+    </mat-sidenav>
+
+
+    <mat-sidenav-content>
+      <mat-toolbar *ngIf="innerWidth>=1000">
+        <span><mat-icon>bubble_chart</mat-icon> Three Point</span>
+        <span style="flex: 1 1 auto"></span>
+        <span>
+          <button mat-button >
+            <mat-icon>help</mat-icon> Aide
+          </button>
+          <span> | </span>
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>account_box</mat-icon> {{user.firstName}} {{user.lastName}}
+          </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Mon profile</button>
+              <button mat-menu-item (click)="onSignOut()">Se déconnecter</button>
+            </mat-menu>
+
+        </span>
+      </mat-toolbar>
+
+      <router-outlet></router-outlet>
+
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
