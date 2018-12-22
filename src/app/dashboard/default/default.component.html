@@ -2,45 +2,72 @@
   <div class="row">
     <div class="col-12">
       <mat-card>
-        <p>
-          default works!
-        </p>
-        <p>
-          Largeur de l'écran: {{innerWidth}}.
-        </p>
-        <p>
-          Valide email:
-        </p>
+          <h5 style="text-align:center;">
+              Bonjour <label>{{user?.firstName}} {{user?.lastName}}</label> ! Ravi de vous revoir. 
+          </h5>
+        <div class="row">
+          <div class="col-md-6 col-lg-6">
+            En cours
+          </div>
+          <div class="col-md-6 col-lg-6">
+            
+            <table>
+              <tr>
+                <td>
+                  <mat-card class="grid_title">
+                    Mouvements à venir 
+                    <div class="default_numbers">
+                    {{user?.data.mouvementComeUp}} €
+                    </div>
+                  </mat-card>
+                </td>
+                <td>
+                  <mat-card class="grid_title">
+                    Solde à venir 
+                    <div class="default_numbers">
+                    {{user?.data.soldeComeUp}} €
+                    </div>
+                  </mat-card>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-card class="grid_title">
+                    Montant débité depuis le 1er 
+                     <div class="default_numbers">
+                     {{user?.data.debitedAmount}}  €
+                     </div>
+                   </mat-card>
+                </td>
+                <td>
+                  <mat-card class="grid_title">
+                    Montant crédité depuis le 1er 
+                    <div class="default_numbers">
+                      {{user?.data.creditedAmount}} €
+                    </div>
+                  </mat-card>
+                </td>
+              </tr>
+            </table>
+
+          </div>
+        </div>
       </mat-card>
     </div>
   </div>
 
 
   <div class="row">
-    <div [class.col-12]="innerWidth<1000" class="col-6">
+    <div  class="col-md-6 col-lg-6">
       <mat-card>
-        Card 1
+          <p>
+              Aperçu de votre compte <label>Three Point </label>
+           </p>
       </mat-card>
     </div>
-    <div [class.col-12]="innerWidth<1000" class="col-6">
+    <div class="col-md-6 col-lg-6">
       <mat-card>
-        Card 2
-        <p>
-          card 2
-        </p>
-      </mat-card>
-    </div>
-  </div>
-
-  <div class="row">
-    <div [class.col-12]="innerWidth<1000" class="col-6">
-      <mat-card>
-        Card 3
-      </mat-card>
-    </div>
-    <div [class.col-12]="innerWidth<1000" class="col-6">
-      <mat-card>
-        Card 4
+          En cours 
       </mat-card>
     </div>
   </div>

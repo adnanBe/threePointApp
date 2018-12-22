@@ -1,1 +1,23 @@
+label{
+   color: #A3CB38;
+   font-weight: bold; 
+}
 
+.grid_title{
+   border-left: #A3CB38 solid 2px;
+   height: 100%;
+  
+}
+.default_numbers{
+   font-family: 'Quicksand', sans-serif;
+   font-size: 29px;
+}
+.grid_title:hover{
+   background-color: #A3CB38;
+   color: white;
+}
+table{
+   height: 100%;
+   border-collapse: separate;
+   border-spacing: 10px;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import * as firebase from 'firebase';
 import { AuthService } from '../services/auth.service';
 import { User } from '../_model/user';
@@ -35,7 +35,6 @@ export class DashboardComponent implements OnInit {
       (user) => {
         if (user) {
           this.isAuth = true;
-          console.log('hi');
           this.emailVerified = user.emailVerified;
           this.data.getData(user.uid).subscribe(data => {
             this.user = data;
@@ -47,7 +46,6 @@ export class DashboardComponent implements OnInit {
           }, 5000);*/
         } else {
           this.isAuth = false;
-          console.log('holla');
         }
       }
     );
