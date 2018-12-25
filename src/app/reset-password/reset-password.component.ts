@@ -31,10 +31,10 @@ onResetPwd() {
         this.router.navigate(['/login']);
       }, 7000);
     } else {
-      this.errorMessage = 'Adresse email invalide';
+      this.errorMessage = 'Nous n\'arrivons pas à trouver votre compte !';
     }
   } else {
-    this.errorMessage = 'Veuillez saisir votre adresse email';
+    this.errorMessage = 'Veuillez saisir correctement votre adresse email';
   }
 }
   ngOnInit() {

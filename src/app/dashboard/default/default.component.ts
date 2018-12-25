@@ -13,18 +13,19 @@ export class DefaultComponent implements OnInit {
 
   innerWidth: number;
   user: User;
+  toDay: string;
+  date: Date;
  // user: Observable<User>;
 
   constructor(private data: DataService, private dashboard: DashboardComponent) {
     this.user  = new User();
-    this.data._isEmpty().subscribe( isEmpty => {
-      if (!isEmpty) {
-       this.data.getData('').subscribe( user => {
-         this.user = user;
-       });
-      }
-     });
+    this.date = new Date();
+
      this.user = this.data.getDataUser();
+
+     this.toDay = this.date.getDay() + '/' + this.date.getMonth() + '/' + this.date.getFullYear();
+
+
   }
 
   ngOnInit() {

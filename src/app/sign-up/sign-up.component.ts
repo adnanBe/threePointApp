@@ -35,7 +35,7 @@ export class SignUpComponent implements OnInit {
               (user) => {
                 this.router.navigate(['/login']);
                 this.toast.success('Votre compte à' +
-                  ' été bien crée il vous reste à valider votre email', 'Awesome !');
+                  ' été bien crée il vous reste valider votre email', 'Awesome !');
               },
               (error) => {
                 this.errorMessage = 'Ce compte existe déja !';
@@ -44,13 +44,13 @@ export class SignUpComponent implements OnInit {
             this.errorMessage = 'Les mots de passe ne correspond pas';
           }
         } else {
-          this.errorMessage = 'Mot de passe non conforme';
+          this.errorMessage = 'Mot de passe non conforme, il doit contenir plus de 6 caractères';
         }
       } else {
-        this.errorMessage = 'Votre adresse email n\'est pas valide';
+        this.errorMessage = 'Veuillez saisir correctement votre adresse email';
       }
     } else {
-      this.errorMessage = 'Tous les champs sont obligatoir';
+      this.errorMessage = 'Tous les champs sont obligatoire';
     }
   }
 

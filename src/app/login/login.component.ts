@@ -30,10 +30,10 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/dashboard/default']);
           },
           (error) => {
-            this.errorMessage = 'Veuillez vérifier les données saisi';
+            this.errorMessage = 'Votre email ou mot de passe, incorrect';
           });
       } else {
-        this.errorMessage = 'Votre email ou mot de passe, est mal reseigné';
+        this.errorMessage = 'Veuillez saisir correctement votre adresse email ou mot de passe';
       }
     } else {
       this.errorMessage = 'Tous les champs sont obligatoire';

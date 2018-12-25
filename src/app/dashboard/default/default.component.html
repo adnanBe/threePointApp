@@ -2,14 +2,33 @@
   <div class="row">
     <div class="col-12">
       <mat-card>
-          <h5 style="text-align:center;">
+          <h4>
               Bonjour <label>{{user?.firstName}} {{user?.lastName}}</label> ! Ravi de vous revoir. 
-          </h5>
+          </h4>
         <div class="row">
-          <div class="col-md-6 col-lg-6">
-            En cours
+          <div class="col-md-6 col-lg-6 progress-wrapper _center">
+            <div class="current">
+              Solde au {{toDay}}
+              <p class="solde">
+                  {{user?.data.solde}}<span class="smaller">€</span>
+              </p>
+            </div>
+            <round-progress
+              [current]="25"
+              [max]="50"
+              [color]="'#b8e994'"
+              [background]="'#eaeaea'"
+              [radius]="125"
+              [stroke]="15"
+              [semicircle]="false"
+              [rounded]="true"
+              [clockwise]="false"
+              [responsive]="false"
+              [duration]="800"
+              [animation]="'easeInOutQuart'"
+              [animationDelay]="0"></round-progress>
           </div>
-          <div class="col-md-6 col-lg-6">
+          <div class="col-md-12 col-lg-6 col-xs-12 col-sm-12">
             
             <table>
               <tr>
@@ -17,7 +36,7 @@
                   <mat-card class="grid_title">
                     Mouvements à venir 
                     <div class="default_numbers">
-                    {{user?.data.mouvementComeUp}} €
+                    {{user?.data.mouvementComeUp}}<span class="smaller">€</span>
                     </div>
                   </mat-card>
                 </td>
@@ -25,7 +44,7 @@
                   <mat-card class="grid_title">
                     Solde à venir 
                     <div class="default_numbers">
-                    {{user?.data.soldeComeUp}} €
+                    {{user?.data.soldeComeUp}}<span class="smaller">€</span>
                     </div>
                   </mat-card>
                 </td>
@@ -35,7 +54,7 @@
                   <mat-card class="grid_title">
                     Montant débité depuis le 1er 
                      <div class="default_numbers">
-                     {{user?.data.debitedAmount}}  €
+                     {{user?.data.debitedAmount}}<span class="smaller">€</span>
                      </div>
                    </mat-card>
                 </td>
@@ -43,7 +62,7 @@
                   <mat-card class="grid_title">
                     Montant crédité depuis le 1er 
                     <div class="default_numbers">
-                      {{user?.data.creditedAmount}} €
+                      {{user?.data.creditedAmount}}<span class="smaller">€</span>
                     </div>
                   </mat-card>
                 </td>
@@ -58,16 +77,57 @@
 
 
   <div class="row">
-    <div  class="col-md-6 col-lg-6">
+    <div  class="col-md-12 col-lg-6 col-xs-12 col-sm-12">
       <mat-card>
-          <p>
-              Aperçu de votre compte <label>Three Point </label>
-           </p>
+          <div class="header"> 
+              Aperçu de votre compte:
+          </div>
+          <div class="row">
+            <div class="col-9 synthes_1">
+              Synthèse
+            </div>
+            <div class="col-3 synthes_1" [ngStyle]="{'color': user.data.solde + user.data.epargneAccount > 0 ? '#A3CB38' : 'red'}">
+              {{(user.data.solde + user.data.epargneAccount).toFixed(2)}} €
+            </div>
+            <div class="col-12 synthes_1"> Mes comptes bancaires </div>
+            <div class="col-9 synthes_2">
+                Three point
+              </div>
+              <div class="col-3 synthes_2" [ngStyle]="{'color': user.data.solde > 0 ? '#A3CB38' : 'red'}">
+                {{user.data.solde.toFixed(2)}} €
+            </div>
+            <div class="col-12 synthes_1"> Mon épargne </div>
+            <div class="col-9 synthes_2">
+                Compte sur le livret
+              </div>
+              <div class="col-3 synthes_2" [ngStyle]="{'color': user.data.epargneAccount > 0 ? '#A3CB38' : 'red'}">
+                {{user.data.epargneAccount.toFixed(2)}} €
+            </div>
+          </div>
       </mat-card>
     </div>
-    <div class="col-md-6 col-lg-6">
+    <div class="col-md-12 col-lg-6 col-xs-12 col-sm-12">
       <mat-card>
-          En cours 
+          <div class="header">
+              Mes derniers mouvements:
+          </div>
+          
+          <div class="row" *ngFor="let lastMove of user.data.lastMove; let i = index" [ngStyle]="{'background-color': i % 2 === 0 ? '#f0fde6':'transparent'}">
+            <div class="col-2 mvnt _date" >
+              {{lastMove.date}}
+            </div>
+            <div class="col-8 mvnt">
+              <div class="row">
+                  <div class="col-12 _title" >{{lastMove.issue}} {{i}}</div>
+                  <div class="col-12 _subtitle">{{lastMove.type}}</div>
+              </div>
+              
+            </div>
+            <div class="col-2 mvnt _amount" [ngStyle]="{'color': lastMove.amount > 0 ? '#A3CB38' : 'black'}">
+                {{lastMove.amount.toFixed(2)}} €
+            </div>
+            
+          </div>
       </mat-card>
     </div>
   </div>

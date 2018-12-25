@@ -52,6 +52,7 @@ import { RibComponent } from './dashboard/rib/rib.component';
 import { BankCardComponent } from './dashboard/bank-card/bank-card.component';
 import { CheckAndCashComponent } from './dashboard/check-and-cash/check-and-cash.component';
 import { TransferComponent } from './dashboard/transfer/transfer.component';
+import {RoundProgressModule} from 'angular-svg-round-progressbar';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { TransferComponent } from './dashboard/transfer/transfer.component';
     TransferComponent,
   ],
   imports: [
+    RoundProgressModule,
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
