@@ -15,8 +15,8 @@ import { CheckAndCashComponent } from './dashboard/check-and-cash/check-and-cash
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignUpComponent, pathMatch: 'full'},
-  {path: 'resetpwd', component: ResetPasswordComponent, pathMatch: 'full'},
+  {path: 'signup', component: SignUpComponent},
+  {path: 'resetpwd', component: ResetPasswordComponent},
   {path: 'dashboard', canActivate: [AuthGuardService] , component: DashboardComponent, children: [
     {path: 'default', component: DefaultComponent},
     {path: 'account', component: AccountComponent},
