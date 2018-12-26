@@ -19,12 +19,12 @@
           </div>
           <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Se souvenir de moi <a href="/resetpwd"> Mot de passe oublié ?</a></label>
+            <label class="form-check-label" for="exampleCheck1">Se souvenir de moi <a [routerLink]="[ '/resetpwd' ]"> Mot de passe oublié ?</a></label>
           </div>
 
           <div class="signUp">
             <button (click)="onLogin()" type="submit" class="btn btn-primary btn-block btn-success">GO</button>
-            <a href="/signup" >Créer un compte</a>
+            <a [routerLink]="[ '/signup' ]" >Créer un compte</a>
           </div>
         </form>
       </div>
